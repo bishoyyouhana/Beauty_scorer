@@ -30,20 +30,6 @@ def getArryPx(contours,image):
     R1, G1, B1= mean[0],mean[1], mean[2]
     #pts=numpy.where(cimg==255)
     #lst_px_values.append(img[pts[0], pts[1]])
-    '''
-    print(pts[0])
-    print(pts[1])
-    x,y=pts[0], pts[1]
-    rgb = rgb_im.getpixel((int(x[i]),int(y[i])))
-    R1.append(rgb[0])
-    G1.append(rgb[1])
-    B1.append(rgb[2])
-        
-    R1[i]=rgb[0]
-    G1[i]=rgb[1]
-    B1[i]=rgb[2]                                               
-    '''
-    #i +=1
     return R1, G1, B1
 
 def SumPx(R,G,B):
@@ -104,56 +90,10 @@ def STDPxVal(R,G,B):
     return STDR,STDG,STDB
 min_YCrCb = numpy.array([109,42,15],numpy.uint8)
 max_YCrCb = numpy.array([240,191,188],numpy.uint8)
-#109, 42, 15
-#229, 191, 188
-#[255,173,127]      [0,133,77]
-
-# Create a window to display the camera feed
-#cv2.namedWindow('Camera Output')
-
-# Get pointer to video frames from primary device
-#videoFrame = cv2.VideoCapture(0)
-
-# Process the video frames
-#keyPressed = -1 # -1 indicates no key pressed
-
-#while(keyPressed < 0): # any key pressed has a value >= 0
-
-'''
-height, width, channels = .shape
-h=int(0.2* width)
-w= int(0.2*height)
-y=height
-x=width
-crop_img = sourceImage[y:y-h, x:x-w]
-cv2.imshow("cropped", crop_img)
-cv2.waitKey(0)
-'''
 i=0
 #filenames=os.listdir(r"C:\Users\Win8.1\source\repos\Beauty_scorer\training_images\CM")
 os.chdir(r"C:\Users\Win8.1\source\repos\Beauty_scorer\training_images\CM")
-'''
-for the_image in filenames:
-    image=face_recognition.load_image_file(the_image)
 
-    face_locations=face_recognition.face_locations(image)
-    if  face_locations[0][0]:
-        #| face_locations[0][0] != 0 | face_locations[0][1] != 0 | face_locations[0][2] != 0 | face_locations[0][3] != 0: 
-        print("i found {} faces in this photograph".format(len(face_locations)))
-        print(face_locations)
-        top = face_locations[0][0]
-        left= face_locations[0][3]
-        bottom = face_locations[0][2]
-        right= face_locations[0][1]
-        print(" face location at pixel top:{}, left:{}, bottom:{}, right:{}".format(top,left,bottom,right))
-        face_image= image[top:bottom, left:right]
-        #name= str(i) + "bumb.jpg"
-        pil_image=Image.fromarray(face_image)
-        os.remove(the_image)
-        pil_image.save(the_image)
-    i+=1
-    print(i)
-'''
 j=0
 filenames=os.listdir(r"C:\Users\Win8.1\source\repos\Beauty_scorer\training_images\CM")
 for sourceImage in filenames:
